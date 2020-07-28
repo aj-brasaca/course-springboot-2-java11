@@ -15,7 +15,7 @@ import com.ablogic.course.entities.enums.OrderStatus;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
-@Table(name = "tb_Order") // Precisou renomear a tabela a ser criada pois "Order" dá conflito com a cláusula "order" do SQL
+@Table(name = "tb_order") // Precisou renomear a tabela a ser criada pois "Order" dá conflito com a cláusula "order" do SQL
 public class Order implements Serializable {
 	
 	private static final long serialVersionUID = 1L;

@@ -14,7 +14,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "tb_User") // Se não colocar essa anotação a tabela será criada como nome da Classe
+@Table(name = "tb_user") // Se não colocar essa anotação a tabela será criada como nome da Classe
 public class User implements Serializable{
 		
 	private static final long serialVersionUID = 1L;
