@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "tb_User") // Se não colocar essa anotação a tabela será criada como nome da Classe
 public class User implements Serializable{
@@ -25,9 +27,10 @@ public class User implements Serializable{
 	private String phone;
 	private String password;
 	
-	@OneToMany(mappedBy = "client")
-	private List<Order> orders = new ArrayList<>();
-	
+	@JsonIgnore // Como é uma via de mão dupla (User referencia Order e Order referencia User) a biblioteca
+	@OneToMany(mappedBy = "client")  // Jackson (que faz a serialização json) fica chamando uma classe à outra
+	private List<Order> orders = new ArrayList<>(); //  em loop infinito. A anotação @JsonIgnore tem que ser
+	                                                // colocada em uma das classes, pelo menos, para parar essa ação.
 	public User() {
 	}
 
